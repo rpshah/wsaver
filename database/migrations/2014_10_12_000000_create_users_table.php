@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('area_id')->unsigned()->index();
             //$table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
 
-            $table->enum('gemder', ['MALE', 'FEMALE', 'OTHER']);
+            $table->enum('gender', ['MALE', 'FEMALE', 'OTHER']);
             $table->integer('age');
             $table->integer('family_id')->unsigned()->index();
             $table->integer('criteria_id')->unsigned()->index();
@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
 
             $table->string('adharcard_number',20)->unique();
             $table->string('mobile_number',15);
+            $table->string('rfid_card_number',64)->unique();
 
             $table->timestamps();
         });

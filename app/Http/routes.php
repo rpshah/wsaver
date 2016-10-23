@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
+//Route::auth();
+Route::get('auth/login','Auth\AuthController@showLoginForm');
+Route::post('login', 'Auth\AuthController@login');
+Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::get('logout', 'Auth\AuthController@logout');
+
+Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+Route::post('password/reset', 'Auth\PasswordController@reset');
+Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+
+Route::get('register', 'CustomRegistrationController@showRegistrationForm');
+Route::post('register', 'CustomRegistrationController@register');
+
+Route::get('areas', 'AreaController@index');
+Route::get('area/create', 'AreaController@createPage');
+Route::post('area/create', 'AreaController@create');
+Route::get('area/update/{area}', 'AreaController@updatePage');
+Route::patch('area/update/{area}', 'AreaController@update');
+Route::delete('area/delete/{area}', 'AuthController@delete');
 
 Route::get('/home', 'HomeController@index');
+
+

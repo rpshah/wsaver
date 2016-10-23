@@ -4,76 +4,85 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Register Yourself here</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                    @include('layouts.error')
+                    {!! Form::open(['url' => 'register']) !!}
+                        <div class="form-group">
+                            {!! Form::label('name', '*Name : ') !!}
+                            {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
-                                </button>
-                            </div>
+                            {!! Form::label('email', '*Email : ') !!}
+                            {!! Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
-                    </form>
+
+                        <div class="form-group">
+                            {!! Form::label('password', '*Password : ') !!}
+                            {!! Form::password('password', ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('repassword', '*RePassword : ') !!}
+                            {!! Form::password('repassword', ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('type', '*User is : ') !!}
+                            {!! Form::select('type', ['FAMILY_MEMBER' => 'Family Member', 'FAMILY_ADMIN' => 'Family Admin', 'AREA_ADMIN' => 'Area Admin or Governer', 'DEVICE_ADMIN' => 'Device User or Driver'], null, ['placeholder' => 'Who You Are...', 'class' => 'form-control', 'required' => 'required']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('latitude', '*Latitude : ') !!}
+                            {!! Form::number('latitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('longitude', '*Longitude : ') !!}
+                            {!! Form::number('longitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('area_id', '*Area ID : ') !!}
+                            {!! Form::number('area_id', 1, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('gender', '*Gender : ') !!}
+                            {!! Form::select('gender', ['MALE' => 'MALE', 'FEMALE' => 'FEMALE', 'OTHER' => 'OTHER'], null, ['placeholder' => 'Select Gender...', 'class' => 'form-control', 'required' => 'required']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('age', '*Age : ') !!}
+                            {!! Form::number('age', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('family_id', '*Family Id(Given to Family_Admin) : ') !!}
+                            {!! Form::number('family_id', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('criteria_id', '*Criteria ID : ') !!}
+                            {!! Form::number('criteria_id', 1, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('adharcard_number', '*AdharCard Number(UID) : ') !!}
+                            {!! Form::number('adharcard_number', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('mobile_number', '*Mobile Number(+91) : ') !!}
+                            {!! Form::number('mobile_number', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+                        <div class="form-group">
+                            {!! Form::submit('Create User', ['class' => 'btn btn-primary form-control']) !!}    
+                        </div>
+                        
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

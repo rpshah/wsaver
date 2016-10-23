@@ -14,8 +14,8 @@ class CreateDevicesTable extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tanker_user_id')->unsigned()->index();
-            $table->foreign('tanker_user_id')->references('id')->on('users');
+            //$table->integer('tanker_user_id')->unsigned()->index();
+            //$table->foreign('tanker_user_id')->references('id')->on('users');
             $table->string('token',100);
             $table->string('vehicle_number',16);
             $table->timestamps();

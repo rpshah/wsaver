@@ -14,8 +14,8 @@ class CreateFamilysTable extends Migration
     {
         Schema::create('familys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('family_admin_id')->unsigned()->index();
-            $table->foreign('family_admin_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->integer('family_admin_id')->unsigned()->index();
+            //$table->foreign('family_admin_id')->references('id')->on('users')->onDelete('cascade');
             $table->float('family_income');
             $table->timestamps();
         });
