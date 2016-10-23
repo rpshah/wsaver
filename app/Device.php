@@ -13,4 +13,5 @@ class Device extends Model
      */
     protected $table = 'devices';
 
+    protected $fillable = ['token', 'vehicle_number'];
 }

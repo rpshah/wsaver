@@ -26,7 +26,7 @@
 							<td>{{$area->latitude_min}} : {{ $area->latitude_max }}</td>
 							<td>{{$area->longitude_min}} : {{ $area->longitude_max }}</td>
 							<td>
-								<a href="/arae/update/{{$area->id}}" class="btn btn-info">Change</a>
+								<a href="/area/update/{{$area->id}}" class="btn btn-info">Change</a>
 							</td>
 							<td>
 								{!! Form::open(['method' => 'DELETE', 'url' => 'area/delete/'.$area->id]) !!}

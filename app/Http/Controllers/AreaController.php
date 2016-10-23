@@ -44,7 +44,7 @@ class AreaController extends Controller
 
     public function index()
     {
-    	$areas = Area::all()->orderBy('updated_at','desc');
+    	$areas = Area::orderBy('updated_at','desc')->get();
 
     	return view('area.index',compact('areas'));
     }
@@ -57,7 +57,7 @@ class AreaController extends Controller
     public function update(Area $area,Request $r)
     {
     	$this->validate($r, [
-    		'name' => 'required|string|unique:areas,name'.$area->name.',name',
+    		'name' => 'required|string|unique:areas,name,'.$area->name.',name',
     		'latitude_min' => 'required|numeric',
     		'latitude_max' => 'required|numeric',
     		'longitude_min'=> 'required|numeric',
@@ -68,7 +68,11 @@ class AreaController extends Controller
     	$area->update($r->all());
 
     	return redirect('areas');
-    
     }
 
+    public function delete(Area $area,Request $r)
+    {
+    	$area->delete();
+    	return redirect('areas');
+    }
 }

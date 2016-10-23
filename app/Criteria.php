@@ -13,4 +13,6 @@ class Criteria extends Model
      */
     protected $table = 'criterias';
 
+    protected $fillable = ['gender', 'age_max', 'family_income_max', 'area_id', 'daily_allowence', 'monthly_allowence'];
+    
 }

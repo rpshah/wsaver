@@ -8,34 +8,34 @@
                 <div class="panel-heading">Add new Area</div>
                 <div class="panel-body">
                     @include('layouts.error')
-                    {!! Form::open(['url' => 'area/create']) !!}
+                    {!! Form::open(['method' => 'PATCH', 'url' => 'area/update/'.$area->id]) !!}
                         <div class="form-group">
                             {!! Form::label('name', '* Area Name : ') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('name', $area->name, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('latitude_min', '* Min Latitude : ') !!}
-                            {!! Form::text('latitude_min', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('latitude_min', $area->latitude_min , ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('latitude_max', '* Max Latitude : ') !!}
-                            {!! Form::text('latitude_max', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('latitude_max', $area->latitude_max , ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('longitude_min', '* Min Longitude : ') !!}
-                            {!! Form::text('longitude_min', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('longitude_min', $area->longitude_min , ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('longitude_max', '* Max Longitude : ') !!}
-                            {!! Form::text('longitude_max', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('longitude_max',  $area->longitude_max , ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Add Area', ['class' => 'btn btn-success form-control']) !!}    
+                            {!! Form::submit('Change Area Data', ['class' => 'btn btn-info form-control']) !!}    
                         </div>
                         
                     {!! Form::close() !!}

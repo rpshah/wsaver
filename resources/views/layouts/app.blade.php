@@ -47,7 +47,31 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                    <?php
+                        $user = auth()->user();
+
+                        if ($user != null && $user->type == 'AREA_ADMIN') {
+                    ?>
+                        <li><a href="{{ url('/areas') }}">Areas</a></li>
+                        <li><a href="{{ url('/criterias') }}">Criterias</a></li>
+                    <?php } ?>
+                    <?php
+                        $user = auth()->user();
+
+                        if ($user != null && $user->type == 'DEVICE_ADMIN') {
+                    ?>
+                        <li><a href="{{ url('/devices') }}">Devices</a></li>
+                        <li><a href="{{ url('/devicelocations') }}">Locations</a></li>
+                    <?php } ?>
+                    <?php
+                        $user = auth()->user();
+
+                        if ($user != null && $user->type == 'FAMILY_ADMIN') {
+                    ?>
+                        <li><a href="{{ url('/families') }}">Family</a></li>
+                        
+                    <?php } ?>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

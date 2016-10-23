@@ -33,7 +33,21 @@ Route::get('area/create', 'AreaController@createPage');
 Route::post('area/create', 'AreaController@create');
 Route::get('area/update/{area}', 'AreaController@updatePage');
 Route::patch('area/update/{area}', 'AreaController@update');
-Route::delete('area/delete/{area}', 'AuthController@delete');
+Route::delete('area/delete/{area}', 'AreaController@delete');
+
+Route::get('criterias', 'CriteriaController@index');
+Route::get('criteria/create', 'CriteriaController@createPage');
+Route::post('criteria/create', 'CriteriaController@create');
+Route::get('criteria/update/{criteria}', 'CriteriaController@updatePage');
+Route::patch('criteria/update/{criteria}', 'CriteriaController@update');
+Route::delete('criteria/delete/{criteria}', 'CriteriaController@delete');
+
+Route::get('devices', 'DeviceController@index');
+Route::get('device/create', 'DeviceController@createPage');
+Route::post('device/create', 'DeviceController@create');
+Route::get('device/update/{device}', 'DeviceController@updatePage');
+Route::patch('device/update/{device}', 'DeviceController@update');
+Route::delete('device/delete/{device}', 'DeviceController@delete');
 
 Route::get('/home', 'HomeController@index');
 
