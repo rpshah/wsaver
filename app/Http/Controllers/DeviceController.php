@@ -17,7 +17,7 @@ class DeviceController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('deviceadmin');
+        $this->middleware('deviceadmin');
     }
 
     public function createPage()

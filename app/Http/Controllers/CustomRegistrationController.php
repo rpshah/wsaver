@@ -21,6 +21,7 @@ class CustomRegistrationController extends Controller
 
     public function register(Request $r)
     {
+
     	$this->validate($r, [
     		'name' => 'required|string',
     		'email' => 'required|email',
@@ -29,14 +30,21 @@ class CustomRegistrationController extends Controller
     		'type' => 'required',
     		'latitude' => 'required',
     		'longitude'=> 'required',
-    		'area_id' => 'numeric',
+    		'area_id' => 'numeric|exists:areas,id',
     		'age' => 'required',
-    		'family_id' => 'required|numeric',
-    		'criteria_id' => 'numeric',
+    		'family_id' => 'required|numeric|exists:familys,id',
+    		'criteria_id' => 'numeric|exists:criterias,id',
     		'adharcard_number' => 'required',
     		'mobile_number' => 'required', 
+            'rfid_card_number' => 'required',
     	]);
 
-    	User::create($r->all());
+        $request->password = bcrypt($request->password);
+
+    	$user = User::create($r->all());
+        auth()->login($user);
+
+        return redirect('/home');
+
     }
 }

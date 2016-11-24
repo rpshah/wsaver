@@ -12,5 +12,5 @@ class Usage extends Model
      * @var string
      */
     protected $table = 'usages';
-
+    protected $fillable = ['user_id', 'device_id', 'usage', 'latitude', 'longitude', 'quality'];
 }

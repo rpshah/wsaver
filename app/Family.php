@@ -13,4 +13,6 @@ class Family extends Model
      */
     protected $table = 'familys';
 
+    protected $fillable = ['family_income'];
+
 }

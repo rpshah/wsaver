@@ -18,7 +18,7 @@ class CriteriaController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('areaadmin');
+        $this->middleware('areaadmin');
     }
 
     public function createPage()

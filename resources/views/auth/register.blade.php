@@ -36,17 +36,17 @@
 
                         <div class="form-group">
                             {!! Form::label('latitude', '*Latitude : ') !!}
-                            {!! Form::number('latitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('latitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('longitude', '*Longitude : ') !!}
-                            {!! Form::number('longitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                            {!! Form::text('longitude', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('area_id', '*Area ID : ') !!}
-                            {!! Form::number('area_id', 1, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) !!}    
+                            {!! Form::number('area_id', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                             {!! Form::label('criteria_id', '*Criteria ID : ') !!}
-                            {!! Form::number('criteria_id', 1, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) !!}    
+                            {!! Form::number('criteria_id', 1, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
 
                         <div class="form-group">
@@ -78,6 +78,13 @@
                             {!! Form::label('mobile_number', '*Mobile Number(+91) : ') !!}
                             {!! Form::number('mobile_number', null, ['class' => 'form-control', 'required' => 'required']) !!}    
                         </div>
+
+
+                        <div class="form-group">
+                            {!! Form::label('rfid_card_number', '*RFID Card Number(+91) : ') !!}
+                            {!! Form::text('rfid_card_number', null, ['class' => 'form-control', 'required' => 'required']) !!}    
+                        </div>
+
                         <div class="form-group">
                             {!! Form::submit('Create User', ['class' => 'btn btn-primary form-control']) !!}    
                         </div>

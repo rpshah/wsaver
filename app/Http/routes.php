@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@homePage');
 
 //Route::auth();
 Route::get('auth/login','Auth\AuthController@showLoginForm');
@@ -49,6 +47,15 @@ Route::get('device/update/{device}', 'DeviceController@updatePage');
 Route::patch('device/update/{device}', 'DeviceController@update');
 Route::delete('device/delete/{device}', 'DeviceController@delete');
 
-Route::get('/home', 'HomeController@index');
+Route::get('families', 'FamilyController@index');
+Route::get('family/create', 'FamilyController@createPage');
+Route::post('family/create', 'FamilyController@create');
+Route::get('family/update/{family}', 'FamilyController@updatePage');
+Route::patch('family/update/{family}', 'FamilyController@update');
+Route::delete('family/delete/{family}', 'FamilyController@delete');
 
+Route::get('usages/{user}', 'UsageController@index');
+Route::get('usage/enrty/{device}', 'UsageController@entry');
+
+Route::get('/home', 'HomeController@index');
 
